@@ -1,0 +1,8 @@
+<div class="footer">
+  <span
+    >You have <span class="pendingTasks"></span>{{ numberOfTasks }} tasks</span
+  >
+  <button type="button" (click)="onClearAll()" [disabled]="numberOfTasks <= 0">
+    Clear All
+  </button>
+</div>

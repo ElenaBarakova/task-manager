@@ -1,0 +1,44 @@
+button {
+  height: 100%;
+  max-width: 800px;
+  border: none;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 16px;
+  outline: none;
+  background: #8e49e8;
+  cursor: pointer;
+  border-radius: 3px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+button.wide {
+  width: 100%;
+  margin: auto;
+  box-shadow: 5px 5px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:disabled,
+button:hover:disabled {
+  background-color: grey;
+  cursor: default;
+}
+
+button:hover {
+  background: #5e0acd;
+}
+
+button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+dialog {
+  background: rgb(147, 147, 147, 0.5);
+  border: none;
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+}

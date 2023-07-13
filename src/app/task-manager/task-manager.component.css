@@ -1,0 +1,173 @@
+.header-container {
+  display: flex;
+}
+
+header {
+  font-weight: bold;
+  width: 300px;
+}
+
+.fa.taskList {
+  transform: rotate(90deg);
+  margin-top: none;
+}
+.fa.taskList-column {
+  transform: rotate(0deg);
+  margin-top: none;
+}
+
+.footer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer button {
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  background: #8e49e8;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.footer button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.footer button:hover {
+  background: #5e0acd;
+}
+
+.footer .stats {
+  width: 100%;
+}
+
+.taskList,
+.taskList-column {
+  max-height: 250px;
+  width: 100%;
+  overflow-y: auto;
+  margin: 10px 0px;
+  padding: 0px;
+}
+.ul-container-column {
+  display: flex;
+  justify-content: space-between;
+}
+.ul-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.taskList li {
+  position: relative;
+  list-style: none;
+  height: 35px;
+  width: 100%;
+  line-height: 35px;
+  margin-bottom: 4px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  border-left: 5px solid;
+  padding: 0 15px;
+  cursor: default;
+  display: flex;
+}
+
+.taskList-column li {
+  position: relative;
+  list-style: none;
+  height: 35px;
+  width: 220px;
+  line-height: 35px;
+  margin-bottom: 4px;
+  background: #f2f2f2;
+  border-radius: 3px;
+  border-left: 5px solid;
+  padding: 0 15px;
+  cursor: default;
+  display: flex;
+}
+
+.btn-container {
+  position: absolute;
+  right: 0px;
+  height: 35px;
+}
+.btn-container .icon {
+  background: #e74c3c;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+li .btn-container .icon-completed {
+  background: rgb(124, 181, 109);
+}
+li .btn-container .icon-completed:hover {
+  background: rgb(101, 150, 89);
+}
+li .btn-container .icon-progress {
+  background: rgb(137, 208, 224);
+}
+li .btn-container .icon-progress:hover {
+  background: rgb(125, 178, 190);
+}
+li .btn-container .icon-pending {
+  background: rgb(237, 194, 114);
+}
+li .btn-container .icon-pending:hover {
+  background: rgb(223, 176, 89);
+}
+
+.taskList li.pending,
+.taskList-column li.pending {
+  border-color: rgb(236, 204, 143);
+}
+
+.taskList li.in-progress,
+.taskList-column li.in-progress {
+  border-color: rgb(140, 211, 228);
+}
+
+.taskList li.completed,
+.taskList-column li.completed {
+  border-color: rgb(128, 198, 112);
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+i {
+  font-size: 24px;
+}
+
+.btn-switch {
+  float: right;
+  margin-left: auto;
+  margin-right: 0;
+  transform: scale(0.7);
+  margin-top: 25px;
+  margin-bottom: 15px;
+}
+
+.fa.taskList {
+  transform: rotate(90deg);
+  margin: 0px;
+}
+.fa.taskList-column {
+  transform: rotate(0deg);
+  margin: 0px;
+}

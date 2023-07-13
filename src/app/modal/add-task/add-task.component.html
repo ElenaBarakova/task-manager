@@ -1,0 +1,16 @@
+<div class="inputField">
+  <input
+    type="text"
+    placeholder="Add your new task"
+    id="newTask"
+    name="newTask"
+    #newTask
+    (keyup)="onTaskNameChange($event)"
+  />
+  <button
+    (click)="onAddTask({ title: newTask.value, status: 'pending' })"
+    [disabled]="taskName?.length == 0"
+  >
+    <i class="fa">&#xf067;</i>
+  </button>
+</div>

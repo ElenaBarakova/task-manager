@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer button {
+  padding: 6px 10px;
+  border-radius: 3px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  background: #8e49e8;
+  cursor: pointer;
+  user-select: none;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.footer button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.footer button:hover {
+  background: #5e0acd;
+}
+
+.footer .stats {
+  width: 100%;
+}

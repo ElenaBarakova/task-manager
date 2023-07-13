@@ -1,0 +1,89 @@
+<app-empty-list-title></app-empty-list-title>
+<div class="header-container" *ngIf="numberOfTasks > 0">
+  <div class="footer">
+    <button type="button" class="btn-switch" (click)="onChangeView()">
+      <i class="fa" [ngClass]="ulClass">&#x2630; </i>
+    </button>
+  </div>
+</div>
+
+<div [ngClass]="ulContainer" *ngIf="numberOfTasks > 0">
+  <div>
+    <p>Pending Tasks</p>
+    <ul cdkDropList [ngClass]="ulClass" (cdkDropListDropped)="onDrop($event)">
+      <li class="pending" *ngFor="let task of tasksSorted.pending" cdkDrag>
+        {{ task.title }}
+        <div class="btn-container">
+          <button
+            title="in progress"
+            class="icon icon-progress"
+            (click)="onStatusChange(task, 'in-progress')"
+          >
+            <i class="fa">&#x270E; </i>
+          </button>
+          <button
+            title="completed"
+            class="icon icon-completed"
+            (click)="onStatusChange(task, 'completed')"
+          >
+            <i class="fa">&#x2713;</i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <p>In Progress Tasks</p>
+    <ul cdkDropList [ngClass]="ulClass" (cdkDropListDropped)="onDrop($event)">
+      <li
+        class="in-progress"
+        *ngFor="let task of tasksSorted['in-progress']"
+        cdkDrag
+      >
+        {{ task.title }}
+        <div class="btn-container">
+          <button
+            title="pending"
+            class="icon icon-pending"
+            (click)="onStatusChange(task, 'pending')"
+          >
+            <i class="fa">&#x27F3;</i>
+          </button>
+          <button
+            class="icon icon-completed"
+            title="completed"
+            (click)="onStatusChange(task, 'completed')"
+          >
+            <i class="fa">&#x2713;</i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <p>Completed Tasks</p>
+    <ul cdkDropList [ngClass]="ulClass" (cdkDropListDropped)="onDrop($event)">
+      <li class="completed" *ngFor="let task of tasksSorted.completed" cdkDrag>
+        {{ task.title }}
+        <div class="btn-container">
+          <button
+            title="in progress"
+            class="icon icon-progress"
+            (click)="onStatusChange(task, 'in-progress')"
+          >
+            <i class="fa">&#x270E; </i>
+          </button>
+          <button
+            title="pending"
+            class="icon icon-pending"
+            (click)="onStatusChange(task, 'pending')"
+          >
+            <i class="fa">&#x27F3;</i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

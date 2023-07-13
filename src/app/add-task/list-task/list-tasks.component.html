@@ -1,0 +1,8 @@
+<ul class="taskList">
+  <li *ngFor="let task of mergedTasks; let i = index" [ngClass]="task.status">
+    {{ task.title }}
+    <button class="icon" (click)="onDelete(task)">
+      <i class="fa">&#xf014;</i>
+    </button>
+  </li>
+</ul>
