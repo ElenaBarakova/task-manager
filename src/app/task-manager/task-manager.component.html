@@ -10,14 +10,21 @@
 <div [ngClass]="ulContainer" *ngIf="numberOfTasks > 0">
   <div>
     <p>Pending Tasks</p>
-    <ul cdkDropList [ngClass]="ulClass" (cdkDropListDropped)="onDrop($event)">
+    <ul
+      cdkDropList
+      #pendingList="cdkDropList"
+      [cdkDropListData]="tasksSorted.pending"
+      [cdkDropListConnectedTo]="[completedList, progressList]"
+      [ngClass]="ulClass"
+      (cdkDropListDropped)="onDrop($event)"
+    >
       <li class="pending" *ngFor="let task of tasksSorted.pending" cdkDrag>
         {{ task.title }}
         <div class="btn-container">
           <button
             title="in progress"
             class="icon icon-progress"
-            (click)="onStatusChange(task, 'in-progress')"
+            (click)="onStatusChange(task, 'progress')"
           >
             <i class="fa">&#x270E; </i>
           </button>
@@ -35,12 +42,15 @@
 
   <div>
     <p>In Progress Tasks</p>
-    <ul cdkDropList [ngClass]="ulClass" (cdkDropListDropped)="onDrop($event)">
-      <li
-        class="in-progress"
-        *ngFor="let task of tasksSorted['in-progress']"
-        cdkDrag
-      >
+    <ul
+      cdkDropList
+      #progressList="cdkDropList"
+      [cdkDropListData]="tasksSorted.progress"
+      [cdkDropListConnectedTo]="[pendingList, completedList]"
+      [ngClass]="ulClass"
+      (cdkDropListDropped)="onDrop($event)"
+    >
+      <li class="in-progress" *ngFor="let task of tasksSorted.progress" cdkDrag>
         {{ task.title }}
         <div class="btn-container">
           <button
@@ -64,14 +74,21 @@
 
   <div>
     <p>Completed Tasks</p>
-    <ul cdkDropList [ngClass]="ulClass" (cdkDropListDropped)="onDrop($event)">
+    <ul
+      cdkDropList
+      #completedList="cdkDropList"
+      [cdkDropListData]="tasksSorted.completed"
+      [cdkDropListConnectedTo]="[pendingList, progressList]"
+      [ngClass]="ulClass"
+      (cdkDropListDropped)="onDrop($event)"
+    >
       <li class="completed" *ngFor="let task of tasksSorted.completed" cdkDrag>
         {{ task.title }}
         <div class="btn-container">
           <button
             title="in progress"
             class="icon icon-progress"
-            (click)="onStatusChange(task, 'in-progress')"
+            (click)="onStatusChange(task, 'progress')"
           >
             <i class="fa">&#x270E; </i>
           </button>

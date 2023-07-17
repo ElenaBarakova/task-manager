@@ -10,7 +10,7 @@ export class TaskServiceService {
 
   private tasksSorted: any = {
     pending: [],
-    'in-progress': [],
+    progress: [],
     completed: [],
   };
 
@@ -29,7 +29,7 @@ export class TaskServiceService {
     const numberOfTasks: number = [
       ...this.tasksSorted.pending,
       ...this.tasksSorted.completed,
-      ...this.tasksSorted['in-progress'],
+      ...this.tasksSorted.progress,
     ]?.length;
     return numberOfTasks;
   }
@@ -37,13 +37,13 @@ export class TaskServiceService {
     const mergedTasks: Task[] = [
       ...this.tasksSorted.pending,
       ...this.tasksSorted.completed,
-      ...this.tasksSorted['in-progress'],
+      ...this.tasksSorted.progress,
     ];
     return mergedTasks;
   }
 
   clearTasks() {
-    this.tasksSorted = { pending: [], 'in-progress': [], completed: [] };
+    this.tasksSorted = { pending: [], progress: [], completed: [] };
 
     this.tasksChanged.next({ ...this.tasksSorted });
   }

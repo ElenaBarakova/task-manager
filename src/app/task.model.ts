@@ -1,6 +1,6 @@
 export const STATUSES = {
   PENDING: 'pending',
-  IN_PROGRESS: 'in-progress',
+  PROGRESS: 'progress',
   COMPLETED: 'completed',
 };
 

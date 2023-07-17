@@ -6,6 +6,6 @@ import { STATUSES, Task } from '../../task.model';
 })
 export class FilterInProgressPipe implements PipeTransform {
   transform(values: Task[]) {
-    return values.filter((value) => value.status === STATUSES.IN_PROGRESS);
+    return values.filter((value) => value.status === STATUSES.PROGRESS);
   }
 }

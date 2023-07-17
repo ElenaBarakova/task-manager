@@ -12,7 +12,7 @@ export class EmptyListTitleComponent {
   subscription: Subscription = new Subscription();
   tasksSorted: any = {
     pending: [],
-    'in-progress': [],
+    progress: [],
     completed: [],
   };
   numberOfTasks: number = 0;

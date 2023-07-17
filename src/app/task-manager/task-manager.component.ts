@@ -19,7 +19,7 @@ import {
 export class TaskManagerComponent implements OnInit, OnDestroy {
   tasksSorted: any = {
     pending: [],
-    'in-progress': [],
+    progress: [],
     completed: [],
   };
   numberOfTasks: number = 0;
