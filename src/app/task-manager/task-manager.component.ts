@@ -19,7 +19,7 @@ import {
 export class TaskManagerComponent implements OnInit, OnDestroy {
   tasksSorted: any = {
     pending: [],
-    progress: [],
+    inProgress: [],
     completed: [],
   };
   numberOfTasks: number = 0;
@@ -59,6 +59,7 @@ export class TaskManagerComponent implements OnInit, OnDestroy {
         event.currentIndex
       );
     }
+    this.taskService.updateTasks();
   }
 
   onStatusChange(task: Task, status: string) {

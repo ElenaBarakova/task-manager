@@ -24,7 +24,7 @@
           <button
             title="in progress"
             class="icon icon-progress"
-            (click)="onStatusChange(task, 'progress')"
+            (click)="onStatusChange(task, 'inProgress')"
           >
             <i class="fa">&#x270E; </i>
           </button>
@@ -45,12 +45,16 @@
     <ul
       cdkDropList
       #progressList="cdkDropList"
-      [cdkDropListData]="tasksSorted.progress"
+      [cdkDropListData]="tasksSorted.inProgress"
       [cdkDropListConnectedTo]="[pendingList, completedList]"
       [ngClass]="ulClass"
       (cdkDropListDropped)="onDrop($event)"
     >
-      <li class="in-progress" *ngFor="let task of tasksSorted.progress" cdkDrag>
+      <li
+        class="inProgress"
+        *ngFor="let task of tasksSorted.inProgress"
+        cdkDrag
+      >
         {{ task.title }}
         <div class="btn-container">
           <button
@@ -88,7 +92,7 @@
           <button
             title="in progress"
             class="icon icon-progress"
-            (click)="onStatusChange(task, 'progress')"
+            (click)="onStatusChange(task, 'inProgress')"
           >
             <i class="fa">&#x270E; </i>
           </button>

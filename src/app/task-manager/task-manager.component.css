@@ -139,8 +139,8 @@ li .btn-container .icon-pending:hover {
   border-color: rgb(236, 204, 143);
 }
 
-.taskList li.in-progress,
-.taskList-column li.in-progress {
+.taskList li.inProgress,
+.taskList-column li.inProgress {
   border-color: rgb(140, 211, 228);
 }
 

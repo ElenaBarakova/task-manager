@@ -47,7 +47,7 @@ i {
   border-color: rgb(236, 204, 143);
 }
 
-.taskList li.in-progress {
+.taskList li.inProgress {
   border-color: rgb(140, 211, 228);
 }
 

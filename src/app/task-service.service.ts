@@ -10,13 +10,37 @@ export class TaskServiceService {
 
   private tasksSorted: any = {
     pending: [],
-    progress: [],
+    inProgress: [],
     completed: [],
   };
 
   tasksChanged: BehaviorSubject<any> = new BehaviorSubject<any>(
     this.tasksSorted
   );
+
+  updateTasks() {
+    this.tasksSorted.pending = this.tasksSorted.pending.map((task: Task) => ({
+      title: task.title,
+      status: STATUSES.PENDING,
+      description: task.description,
+    }));
+    this.tasksSorted.inProgress = this.tasksSorted.inProgress.map(
+      (task: Task) => ({
+        title: task.title,
+        status: STATUSES.PROGRESS,
+        description: task.description,
+      })
+    );
+    this.tasksSorted.completed = this.tasksSorted.completed.map(
+      (task: Task) => ({
+        title: task.title,
+        status: STATUSES.COMPLETED,
+        description: task.description,
+      })
+    );
+
+    this.tasksChanged.next({ ...this.tasksSorted });
+  }
 
   addTask(task: Task) {
     this.tasksSorted.pending.push(task);
@@ -29,7 +53,7 @@ export class TaskServiceService {
     const numberOfTasks: number = [
       ...this.tasksSorted.pending,
       ...this.tasksSorted.completed,
-      ...this.tasksSorted.progress,
+      ...this.tasksSorted.inProgress,
     ]?.length;
     return numberOfTasks;
   }
@@ -37,13 +61,13 @@ export class TaskServiceService {
     const mergedTasks: Task[] = [
       ...this.tasksSorted.pending,
       ...this.tasksSorted.completed,
-      ...this.tasksSorted.progress,
+      ...this.tasksSorted.inProgress,
     ];
     return mergedTasks;
   }
 
   clearTasks() {
-    this.tasksSorted = { pending: [], progress: [], completed: [] };
+    this.tasksSorted = { pending: [], inProgress: [], completed: [] };
 
     this.tasksChanged.next({ ...this.tasksSorted });
   }

@@ -11,7 +11,7 @@ import { TaskServiceService } from 'src/app/task-service.service';
 export class ListTasksComponent implements OnInit, OnDestroy {
   tasksSorted: any = {
     pending: [],
-    progress: [],
+    inProgress: [],
     completed: [],
   };
   mergedTasks: Task[] = [];

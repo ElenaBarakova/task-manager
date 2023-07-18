@@ -1,16 +1,41 @@
-<div class="inputField">
-  <input
-    type="text"
-    placeholder="Add your new task"
-    id="newTask"
-    name="newTask"
-    #newTask
-    (keyup)="onTaskNameChange($event)"
-  />
-  <button
-    (click)="onAddTask({ title: newTask.value, status: 'pending' })"
-    [disabled]="taskName?.length == 0"
-  >
-    <i class="fa">&#xf067;</i>
+<form
+  #taskForm="ngForm"
+  (ngSubmit)="onSubmit(taskForm)"
+  class="inputField"
+  novalidate
+>
+  <div class="form-group">
+    <!-- <label for="newTask"></label> -->
+    <input
+      class="task form-control"
+      type="text"
+      placeholder="Add your new task"
+      id="newTask"
+      name="newTask"
+      ngModel
+      (keyup)="onTaskNameChange($event)"
+      required
+    />
+    <!-- <p class="danger" *ngIf="taskForm.newTask.$valid"></p> -->
+  </div>
+
+  <div class="form-group">
+    <textarea
+      class="description form-control"
+      type="text"
+      placeholder="Add description"
+      id="newTaskDescription"
+      name="newTaskDescription"
+      ngModel
+      (keyup)="onTaskNameChange($event)"
+      required
+      minlength="3"
+    >
+    </textarea>
+  </div>
+
+  <button type="submit" [disabled]="!taskForm.valid">
+    <!-- <i class="fa">&#xf067;</i> -->
+    ADD
   </button>
-</div>
+</form>

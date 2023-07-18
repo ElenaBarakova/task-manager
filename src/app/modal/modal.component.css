@@ -42,3 +42,6 @@ dialog {
   display: flex;
   align-items: center;
 }
+.modal-footer {
+  padding: 16px 16px;
+}

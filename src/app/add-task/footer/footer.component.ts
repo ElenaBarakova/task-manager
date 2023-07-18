@@ -11,7 +11,7 @@ import { TaskServiceService } from 'src/app/task-service.service';
 export class FooterComponent implements OnInit, OnDestroy {
   tasksSorted: any = {
     pending: [],
-    progress: [],
+    inProgress: [],
     completed: [],
   };
   numberOfTasks: number = 0;
